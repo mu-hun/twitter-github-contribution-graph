@@ -1,0 +1,44 @@
+{
+  "name": "GradeBackend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon --exec ts-node -- src/index.ts",
+    "build": "ts-node -- src/index.ts",
+    "lint": "./node_modules/.bin/eslint src/index.ts"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^2.4.0",
+    "@typescript-eslint/parser": "^2.4.0",
+    "eslint": "^6.5.1",
+    "husky": ">=1",
+    "lint-staged": ">=8",
+    "nodemon": "^1.19.4",
+    "prettier": "1.18.2",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "tslint-clean-code": "^0.2.10",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.6.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,json}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}
