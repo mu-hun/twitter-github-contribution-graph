@@ -7,7 +7,7 @@
     "start": "ts-node -- src/index.ts",
     "build": "ts-node -- src/index.ts",
     "lint": "./node_modules/.bin/eslint src/index.ts",
-    "test": "run-p mock jest-alias",
+    "test": "cross-env NODE_ENV=development run-p mock jest-alias",
     "mock": "serve mock",
     "jest-alias": "jest"
   },
@@ -16,6 +16,7 @@
     "@types/jest": "^24.0.25",
     "@types/node": "^13.1.6",
     "@types/request-promise": "^4.1.45",
+    "cross-env": "^6.0.3",
     "jest": "^24.9.0",
     "prettier": "1.18.2",
     "ts-jest": "^24.3.0",
