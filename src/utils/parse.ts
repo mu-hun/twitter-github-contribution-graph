@@ -18,7 +18,12 @@ export const parseGraphAndCurrentYear = (data: string) => {
 
   loaded('svg > g > g').remove()
 
-  loaded('svg > g').prepend(currentYear)
+  loaded('svg').removeAttr('width')
+  loaded('svg').removeAttr('height')
 
+  loaded('svg').attr('viewBox', '0 0 828 128')
+  loaded('svg').attr('xmlns', 'http://www.w3.org/2000/svg')
+
+  loaded('svg > g').prepend(currentYear)
   return loaded
 }
