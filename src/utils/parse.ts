@@ -24,6 +24,8 @@ export const parseGraphAndCurrentYear = (data: string) => {
   loaded('svg').attr('viewBox', '0 0 828 128')
   loaded('svg').attr('xmlns', 'http://www.w3.org/2000/svg')
 
+  loaded('svg').prepend('<style>text {font-family: sans-serif}</style>')
+
   loaded('svg > g').prepend(currentYear)
   return loaded
 }
