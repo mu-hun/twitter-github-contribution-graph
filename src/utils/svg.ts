@@ -4,7 +4,15 @@ import { parseGraphAndCurrentYear, parseGraph } from './parse'
 const parseSVG = (data: string) => {
   const OnlyHaveCurrentYear = parseGraphAndCurrentYear(data)
   const result = parseGraph(OnlyHaveCurrentYear).html() as string
-  return result
+  const formatted = result
+    .trim()
+    .replace(/\n   /g, '')
+    .replace(
+      /       <rect/g,
+      `
+    <rect`
+    )
+  return formatted
 }
 
 export const getGraphAndParseSvg = async (username: string) => {
