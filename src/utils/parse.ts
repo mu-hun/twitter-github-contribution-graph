@@ -7,7 +7,7 @@ export const parseGraph = (data: CheerioStatic) => data('.js-calendar-graph')
 
 const parseCurrentYear = (data: Cheerio) => {
   const selected = data.find('g > g')
-  const underIndex = selected.length - 1 - getWeek()
+  const underIndex = selected.length - getWeek()
   return selected.not(index => index < underIndex)
 }
 
