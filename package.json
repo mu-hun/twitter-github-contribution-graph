@@ -7,9 +7,7 @@
     "start": "ts-node -- src/index.ts",
     "build": "ts-node -- src/index.ts",
     "lint": "./node_modules/.bin/eslint src/index.ts",
-    "test": "cross-env NODE_ENV=development run-p mock jest-alias",
-    "mock": "serve mock",
-    "jest-alias": "jest"
+    "test": "cross-env NODE_ENV=development jest"
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.15",
