@@ -8,17 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: borales/actions-yarn@v2.0.0
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install -g yarn
-      - name: yarn install, start
+          cmd: install
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: start
         env:
           ACCESS_TOKEN_KEY: ${{ secrets.ACCESS_TOKEN_KEY }}
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET  }}
           CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
           CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
-        run: |
-          yarn
-          yarn start
