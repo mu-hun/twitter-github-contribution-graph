@@ -5,5 +5,5 @@ export default function getWeek(date: Date) {
   UTC.setUTCDate(UTC.getUTCDate() + 4 - (UTC.getUTCDay() || 7))
   const yearStart = new Date(Date.UTC(UTC.getUTCFullYear(), 0, 1))
   // @ts-ignore
-  return Math.ceil(((UTC - yearStart) / 86400000 + 1) / 7) - 2
+  return Math.ceil(((UTC - yearStart) / 86400000 + 1) / 7) + 1
 }
