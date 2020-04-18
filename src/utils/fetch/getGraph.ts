@@ -1,7 +1,7 @@
 import { readFile } from '../fs'
 import request, { RequestPromise } from 'request-promise'
 
-const isDevelopment = process.env.NODE_ENV! === 'development'
+import { isDevelopment } from '../../env'
 
 export default (username: string) =>
   isDevelopment
