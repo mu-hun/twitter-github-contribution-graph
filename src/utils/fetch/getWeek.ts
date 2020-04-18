@@ -1,5 +1,4 @@
-export default () => {
-  const date = new Date()
+export default function getWeek(date: Date) {
   const UTC = new Date(
     Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
   )
