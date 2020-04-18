@@ -3,11 +3,15 @@ import cheerio from 'cheerio'
 import getGraph from './fetch/getGraph'
 import getWeek from './fetch/getWeek'
 
+import { isDevelopment } from '../env'
+
 export const parseGraph = (data: CheerioStatic) => data('.js-calendar-graph')
+
+const weekIndex = getWeek(isDevelopment ? new Date('2020-01-12') : new Date())
 
 const parseCurrentYear = (data: Cheerio) => {
   const selected = data.find('g > g')
-  const underIndex = selected.length - getWeek()
+  const underIndex = selected.length - weekIndex
   return selected.not(index => index < underIndex)
 }
 
