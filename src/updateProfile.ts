@@ -10,8 +10,8 @@ const client = new twitter({
   access_token_secret: process.env.ACCESS_TOKEN_SECRET!,
 })
 
-export const updateProfileBanner = (banner: Buffer) =>
-  new Promise((res, rej) => {
+export default function updateProfileBanner(banner: Buffer) {
+  return new Promise((res, rej) => {
     client.post(
       'account/update_profile_banner',
       { banner: banner.toString('base64') },
@@ -20,3 +20,4 @@ export const updateProfileBanner = (banner: Buffer) =>
       }
     )
   })
+}
