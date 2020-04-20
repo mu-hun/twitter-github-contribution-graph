@@ -1,7 +1,7 @@
-import { readFile } from '../fs'
+import { readFile } from '../utils/fs'
 import request, { RequestPromise } from 'request-promise'
 
-import { isDevelopment } from '../../env'
+import { isDevelopment } from '../env'
 
 export default function getGraph(username: string) {
   return isDevelopment

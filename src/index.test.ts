@@ -1,5 +1,5 @@
-import getGraph from './utils/fetch/getGraph'
-import parseSVG from './utils/parseSvg'
+import getGraph from './fetch/getGraph'
+import parseSVG from './parseSvg'
 import { readFile } from './utils/fs'
 
 test('is same?', async () => {
