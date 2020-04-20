@@ -2,7 +2,7 @@ import fs from 'fs'
 import sharp from 'sharp'
 
 import getGraph from './fetch/getGraph'
-import { getGraphAndParseSvg } from './svg'
+import parseSVG from './parseSvg'
 
 const svg2Png = async (result: Buffer) => {
   return sharp(result)
@@ -10,11 +10,13 @@ const svg2Png = async (result: Buffer) => {
     .toBuffer()
 }
 
-export default async (username: string) => {
-  const svgData = Buffer.from(await getGraphAndParseSvg(username))
-  const pngData = await svg2Png(svgData)
+export default async function makeBanner(username: string) {
+  const graph = await getGraph(username)
+  const SVG = parseSVG(graph)
+
+  const input = await svg2Png(Buffer.from(SVG))
 
   return sharp('resources/banner.png')
-    .composite([{ input: pngData }])
+    .composite([{ input }])
     .toBuffer()
 }
