@@ -3,15 +3,17 @@ import cheerio from 'cheerio'
 import getGraph from './fetch/getGraph'
 import startWeekRange from './fetch/getWeek'
 
-import { isDevelopment } from './env'
-
 const xmlMetaTag = `<?xml version="1.0" encoding="UTF-8"?>
 `
 
-export default function parseSVG(context: string) {
+export default function parseSVG(context: string, date = new Date()) {
   const container = parseGraphContainer(context)
 
-  const linesOfCurrentYear = parseCurrentYear(container.clone())
+  const linesOfCurrentYear = parseCurrentYear(
+    container.clone(),
+    startWeekRange(date)
+  )
+
   const preporcessed = preprocesser(container.clone())
 
   preporcessed.find('svg > g').prepend(linesOfCurrentYear)
@@ -34,13 +36,9 @@ export default function parseSVG(context: string) {
 const parseGraphContainer = (context: string) =>
   cheerio('.js-calendar-graph', context)
 
-const weekIndex = startWeekRange(
-  isDevelopment ? new Date('2020-01-12') : new Date()
-)
-
-export const parseCurrentYear = (data: Cheerio) => {
-  const selected = data.find('g > g')
-  const underIndex = selected.length - weekIndex
+const parseCurrentYear = (container: Cheerio, startIndex: number) => {
+  const selected = container.find('g > g')
+  const underIndex = selected.length - startIndex
   return selected.not(index => index < underIndex)
 }
 
