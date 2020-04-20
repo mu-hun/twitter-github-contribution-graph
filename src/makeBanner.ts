@@ -2,7 +2,7 @@ import fs from 'fs'
 import sharp from 'sharp'
 
 import getGraph from './fetch/getGraph'
-import parseSVG from './parseSvg'
+import parseSVG from './utils/parseSvg'
 
 const svg2Png = async (result: Buffer) => {
   return sharp(result)
