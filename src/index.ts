@@ -1,5 +1,5 @@
 import makeBanner from './makeBanner'
-import { updateProfileBanner } from './client'
+import updateProfileBanner from './updateProfile'
 
 import { username } from './env'
 
