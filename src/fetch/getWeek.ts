@@ -1,4 +1,4 @@
-export default function getWeek(date: Date) {
+export default function startWeekRange(date: Date) {
   const UTC = new Date(
     Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
   )

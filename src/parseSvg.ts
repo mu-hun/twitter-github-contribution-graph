@@ -1,7 +1,7 @@
 import cheerio from 'cheerio'
 
 import getGraph from './fetch/getGraph'
-import getWeek from './fetch/getWeek'
+import startWeekRange from './fetch/getWeek'
 
 import { isDevelopment } from './env'
 
@@ -34,7 +34,9 @@ export default function parseSVG(context: string) {
 const parseGraphContainer = (context: string) =>
   cheerio('.js-calendar-graph', context)
 
-const weekIndex = getWeek(isDevelopment ? new Date('2020-01-12') : new Date())
+const weekIndex = startWeekRange(
+  isDevelopment ? new Date('2020-01-12') : new Date()
+)
 
 export const parseCurrentYear = (data: Cheerio) => {
   const selected = data.find('g > g')
