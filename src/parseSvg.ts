@@ -1,6 +1,5 @@
 import cheerio from 'cheerio'
 
-import getGraph from './fetch/getGraph'
 import getWeekOfYear from './fetch/getWeekOfYear'
 
 const xmlMetaTag = `<?xml version="1.0" encoding="UTF-8"?>
@@ -24,9 +23,9 @@ export default function parseSVG(context: string, date = new Date()) {
     xmlMetaTag +
     result
       .trim()
-      .replace(/\n   /g, '')
+      .replace(/\n {3}/g, '')
       .replace(
-        /       <rect/g,
+        / {7}<rect/g,
         `
     <rect`
       )
@@ -39,7 +38,7 @@ const parseGraphContainer = (context: string) =>
 const parseCurrentYear = (container: Cheerio, startIndex: number) => {
   const selected = container.find('g > g')
   const underIndex = selected.length - startIndex
-  return selected.not(index => index < underIndex)
+  return selected.not((index) => index < underIndex)
 }
 
 export const preprocesser = (container: Cheerio) => {
