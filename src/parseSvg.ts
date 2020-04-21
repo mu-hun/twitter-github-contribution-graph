@@ -1,7 +1,7 @@
 import cheerio from 'cheerio'
 
 import getGraph from './fetch/getGraph'
-import startWeekRange from './fetch/getWeek'
+import getWeekOfYear from './fetch/getWeekOfYear'
 
 const xmlMetaTag = `<?xml version="1.0" encoding="UTF-8"?>
 `
@@ -11,7 +11,7 @@ export default function parseSVG(context: string, date = new Date()) {
 
   const linesOfCurrentYear = parseCurrentYear(
     container.clone(),
-    startWeekRange(date)
+    getWeekOfYear(date)
   )
 
   const preporcessed = preprocesser(container.clone())
