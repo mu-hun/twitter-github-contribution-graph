@@ -1,10 +1,10 @@
 import { readFile } from '../utils/fs'
-import request, { RequestPromise } from 'request-promise'
+import axios from 'axios'
 
-export default function getGraph(username?: string) {
+export default async function getGraph(username?: string) {
   return username
-    ? (request.get(
+    ? (await axios.get<string>(
         `https://github.com/users/${username}/contributions`
-      ) as RequestPromise<string>)
+      )).data
     : readFile('mock/index.html', { encoding: 'utf8' })
 }
