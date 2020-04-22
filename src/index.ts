@@ -17,4 +17,4 @@ const main = async () => {
   await updateProfileBanner(banner)
 }
 
-main().catch(e => console.error(e))
+main().catch((e) => console.error(e))
