@@ -1,10 +1,13 @@
+jest.mock('./fetch/getGraph')
+
 import getGraph from './fetch/getGraph'
 import parseSVG from './parseSvg'
+
 import { readFile } from './utils/fs'
 
 test('Compare snapshot', async () => {
   const [graph, expectSVG] = await Promise.all([
-    getGraph(),
+    getGraph('x86chi'),
     readFile('mock/expect.svg', { encoding: 'utf8' }),
   ])
 
