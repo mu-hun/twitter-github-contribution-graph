@@ -13,11 +13,11 @@ export default function parseSVG(context: string, date = new Date()) {
     getWeekOfYear(date)
   )
 
-  const preporcessed = preprocesser(container.clone())
+  const preprocessed = preprocessor(container.clone())
 
-  preporcessed.find('svg > g').prepend(linesOfCurrentYear)
+  preprocessed.find('svg > g').prepend(linesOfCurrentYear)
 
-  const result = preporcessed.html()!
+  const result = preprocessed.html()!
 
   const formatted =
     xmlMetaTag +
@@ -41,7 +41,7 @@ const parseCurrentYear = (container: Cheerio, startIndex: number) => {
   return selected.not((index) => index < underIndex)
 }
 
-export const preprocesser = (container: Cheerio) => {
+export const preprocessor = (container: Cheerio) => {
   const svg = container.find('svg')
 
   svg.find('> g > g').remove()
