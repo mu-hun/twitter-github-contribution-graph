@@ -11,7 +11,7 @@ test('Compare snapshot', async () => {
     readFile('mock/expect.svg', { encoding: 'utf8' }),
   ])
 
-  const result = parseSVG(graph, new Date('2020-01-12'))
+  const result = parseSVG(graph, new Date('2020-10-30'))
 
   expect(result).toBe(expectSVG)
 })

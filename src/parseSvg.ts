@@ -52,7 +52,29 @@ export const preprocesser = (container: Cheerio) => {
   svg.attr('viewBox', '0 0 828 128')
   svg.attr('xmlns', 'http://www.w3.org/2000/svg')
 
-  svg.prepend('<style>text {font-family: sans-serif}</style>')
+  svg.prepend(`<style>
+  text {
+    font-family: sans-serif;
+  }
+  rect {
+    --color-calendar-graph-day-bg: #ebedf0;
+    --color-calendar-graph-day-L1-bg: #9be9a8;
+    --color-calendar-graph-day-L2-bg: #40c463;
+    --color-calendar-graph-day-L3-bg: #30a14e;
+    --color-calendar-graph-day-L4-bg: #216e39;
+
+    --color-calendar-graph-day-border: rgba(27, 31, 35, 0.06);
+    --color-calendar-graph-day-L4-border: rgba(27, 31, 35, 0.06);
+    --color-calendar-graph-day-L3-border: rgba(27, 31, 35, 0.06);
+    --color-calendar-graph-day-L2-border: rgba(27, 31, 35, 0.06);
+    --color-calendar-graph-day-L1-border: rgba(27, 31, 35, 0.06);
+
+    shape-rendering: geometricPrecision;
+    outline: 1px solid var(--color-calendar-graph-day-border);
+    outline-offset: -1px;
+    box-sizing: border-box;
+  }
+</style>`)
 
   return container
 }
