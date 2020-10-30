@@ -41,7 +41,7 @@ const parseCurrentYear = (container: Cheerio, startIndex: number) => {
   return selected.not((index) => index < underIndex)
 }
 
-export const preprocessor = (container: Cheerio) => {
+const preprocessor = (container: Cheerio) => {
   const svg = container.find('svg')
 
   svg.find('> g > g').remove()
