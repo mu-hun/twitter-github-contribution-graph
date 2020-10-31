@@ -1,7 +1,38 @@
-import sharp from 'sharp'
+import cheerio from 'cheerio'
+import { readFileSync } from 'fs'
+import nodeHtmlToImage from 'node-html-to-image'
 
-export const svg2Png = (result: Buffer) => sharp(result).png().toBuffer()
+interface MakeBannerProps {
+  template: string
+  SVG: string
+  title: string
+  URL: string
+}
 
-export default function makeBanner(input: Buffer) {
-  return sharp('resources/banner.png').composite([{ input }]).toBuffer()
+const stylesheet = {
+  layout: readFileSync('resources/index.css', { encoding: 'utf8' }),
+  github: readFileSync('resources/github.css', { encoding: 'utf8' }),
+} as const
+
+export default async function makeBanner({
+  template,
+  SVG,
+  title,
+  URL,
+}: MakeBannerProps) {
+  const $ = cheerio.load(template)
+  $('h1').prepend(title)
+  $('footer').append(`<p>${URL}</p>`)
+
+  $('body').prepend(SVG)
+
+  $('head').append(`<style>${stylesheet.layout}</style>`)
+  $('head').append(`<style>${stylesheet.github}</style>`)
+
+  const output = await nodeHtmlToImage({ html: $.html() })
+
+  if (!(output instanceof Buffer))
+    throw Error('Generated image type is not Buffer')
+
+  return output
 }

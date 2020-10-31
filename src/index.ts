@@ -1,19 +1,22 @@
+import { readFileSync } from 'fs'
+
 import getGraph from './fetch/getGraph'
 import parseSVG from './parseSvg'
 
-import makeBanner, { svg2Png } from './makeBanner'
+import makeBanner from './makeBanner'
 
 import updateProfileBanner from './updateProfile'
 
-import { username } from './env'
+import { username, title, URL } from './env'
+
+const template = readFileSync('resources/index.html', { encoding: 'utf8' })
 
 const main = async () => {
   const graph = await getGraph(username)
   const SVG = parseSVG(graph)
 
-  const PNG = await svg2Png(Buffer.from(SVG))
+  const banner = await makeBanner({ template, SVG, title, URL })
 
-  const banner = await makeBanner(PNG)
   await updateProfileBanner(banner)
 }
 

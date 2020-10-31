@@ -12,6 +12,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 10.x
+      - name: Get Current Time
+        uses: 1466587594/get-current-time@v2.0.0
+        id: current-time
       - name: Install dependencies
         run: yarn
       - name: Run cron job
@@ -21,4 +24,6 @@ jobs:
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET  }}
           CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
           CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
-          USERNAME: x86chi
+          USERNAME: ${{ github.repository_owner }}
+          URL: https://github.com/${{ github.repository }}
+          TITLE: ${{ steps.current-time.outputs.year }}'s ${{ github.repository_owner }}
