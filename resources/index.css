@@ -1,0 +1,23 @@
+body {
+  width: 1500px;
+  height: 500px;
+  font-family: sans-serif;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  position: relative;
+}
+
+body > svg {
+  width: 1100px;
+}
+
+footer {
+  position: absolute;
+  bottom: 30px;
+  right: 33px;
+}
+
+h1 {
+  font-size: 20px;
+}
