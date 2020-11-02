@@ -25,5 +25,5 @@ jobs:
           CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
           CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
           USERNAME: ${{ github.repository_owner }}
-          URL: https://github.com/${{ github.repository }}
+          SUBTITLE: https://github.com/${{ github.repository }}
           TITLE: ${{ steps.current-time.outputs.year }}'s ${{ github.repository_owner }}

@@ -7,7 +7,7 @@ import makeBanner from './makeBanner'
 
 import updateProfileBanner from './updateProfile'
 
-import { username, title, URL } from './env'
+import { username, title, subtitle } from './env'
 
 const template = readFileSync('resources/index.html', { encoding: 'utf8' })
 
@@ -15,7 +15,7 @@ const main = async () => {
   const graph = await getGraph(username)
   const SVG = parseSVG(graph)
 
-  const banner = await makeBanner({ template, SVG, title, URL })
+  const banner = await makeBanner({ template, SVG, title, subtitle })
 
   await updateProfileBanner(banner)
 }
