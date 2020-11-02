@@ -2,11 +2,12 @@ import 'dotenv/config'
 
 const variables = {
   username: process.env.USERNAME,
-  URL: process.env.URL,
+  subtitle: process.env.SUBTITLE,
   title: process.env.TITLE,
+  parseOnlyCurrentYear: !!process.env.CURRENT_YEAR,
 } as const
 
-if (!(variables.username && variables.URL && variables.title))
+if (!(variables.username && variables.subtitle && variables.title))
   throw Error('Cannot read require environment variables')
 
-export const { username, URL, title } = variables
+export const { username, subtitle, title, parseOnlyCurrentYear } = variables

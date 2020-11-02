@@ -6,7 +6,7 @@ interface MakeBannerProps {
   template: string
   SVG: string
   title: string
-  URL: string
+  subtitle: string
 }
 
 const stylesheet = {
@@ -18,11 +18,11 @@ export default async function makeBanner({
   template,
   SVG,
   title,
-  URL,
+  subtitle,
 }: MakeBannerProps) {
   const $ = cheerio.load(template)
   $('h1').prepend(title)
-  $('footer').append(`<p>${URL}</p>`)
+  $('footer').append(`<p>${subtitle}</p>`)
 
   $('body').prepend(SVG)
 
