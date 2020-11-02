@@ -49,6 +49,12 @@ TITLE=
 SUBTITLE=
 ```
 
+### Parse only this year
+
+This project supports parsing only this year history. It is enabled by opt-out in Github Actions.
+
+Please remove the `CURRENT_YEAR: true` line in `github/workflows/cron.yml` if you don't want this feature.
+
 ## License
 
 MIT

@@ -2,17 +2,29 @@ import cheerio from 'cheerio'
 
 import getWeekOfYear from './fetch/getWeekOfYear'
 
-export default function parseSVG(context: string, date = new Date()) {
+interface ParseSVGProps {
+  context: string
+  date: Date
+  parseOnlyCurrentYear: boolean
+}
+
+export default function parseSVG({
+  context,
+  date,
+  parseOnlyCurrentYear,
+}: ParseSVGProps) {
   const container = parseGraphContainer(context)
+  const preprocessed = preprocessor(container)
 
-  const linesOfCurrentYear = parseCurrentYear(
-    container.clone(),
-    getWeekOfYear(date)
-  )
+  if (parseOnlyCurrentYear) {
+    const linesOfCurrentYear = parseCurrentYear(
+      preprocessed,
+      getWeekOfYear(date)
+    )
 
-  const preprocessed = preprocessor(container.clone())
-
-  preprocessed.find('svg > g').prepend(linesOfCurrentYear)
+    preprocessed.find('svg > g > g').remove()
+    preprocessed.find('svg > g').prepend(linesOfCurrentYear)
+  }
 
   const result = preprocessed.html()!
 
@@ -38,8 +50,6 @@ const parseCurrentYear = (container: Cheerio, startIndex: number) => {
 
 const preprocessor = (container: Cheerio) => {
   const svg = container.find('svg')
-
-  svg.find('> g > g').remove()
 
   svg.removeAttr('width')
   svg.removeAttr('height')

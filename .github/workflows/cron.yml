@@ -27,3 +27,4 @@ jobs:
           USERNAME: ${{ github.repository_owner }}
           SUBTITLE: https://github.com/${{ github.repository }}
           TITLE: ${{ steps.current-time.outputs.year }}'s ${{ github.repository_owner }}
+          CURRENT_YEAR: true
