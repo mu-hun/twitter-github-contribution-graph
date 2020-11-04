@@ -7,11 +7,11 @@ A client uploading Github contribution graph to Twitter profile banner.
 
 ## Usage
 
-Please generate Twitter bot key and token at [Twitter Developer Dashboard](https://developer.twitter.com/en/apps)
+Please generate Twitter app key and token at [Twitter Developer Dashboard](https://developer.twitter.com/en/apps)
 
 ### Authorize Twitter app
 
-You can authorize Twitter bot to your Twitter account with [Twitter CLI](https://github.com/sferik/t#configuration)
+You can authorize Twitter app to your Twitter account with [Twitter CLI](https://github.com/sferik/t#configuration)
 
 Below command will direct you to a URL where you can authorize to Twitter bot.
 
@@ -23,7 +23,7 @@ t authorize
 
 > Forked repository page -> Secrets -> New Secret
 
-Insert `CONSUMER_KEY`, `CONSUMER_SECRET`, `ACCESS_TOKEN_KEY`, `ACCESS_TOKEN_SECRET`.
+Create `CONSUMER_KEY`, `CONSUMER_SECRET`, `ACCESS_TOKEN_KEY`, `ACCESS_TOKEN_SECRET`.
 
 Done. The banner is updating once a day.
 
