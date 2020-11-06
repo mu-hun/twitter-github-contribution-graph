@@ -26,7 +26,9 @@ export default function parseSVG({
     preprocessed.find('svg > g').prepend(linesOfCurrentYear)
   }
 
-  const result = preprocessed.html()!
+  const result = preprocessed.html()
+
+  if (!result) throw Error('Parsed SVG content is empty')
 
   const formatted = result
     .trim()
