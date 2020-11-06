@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'fs'
+import { readFileSync } from 'fs'
 
 import getGraph from './fetch/getGraph'
 import parseSVG from './parseSvg'
@@ -17,7 +17,7 @@ const main = async () => {
 
   const banner = await makeBanner({ template, SVG, title, subtitle })
 
-  writeFileSync('result.png', banner)
+  await updateProfileBanner(banner)
 }
 
 main().catch((e) => console.error(e))
