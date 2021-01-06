@@ -32,12 +32,8 @@ export default function parseSVG({
 
   const formatted = result
     .trim()
-    .replace(/\n {3}/g, '')
-    .replace(
-      / {7}<rect/g,
-      `
-    <rect`
-    )
+    .replace(/\n\s{3}/g, '')
+    .replace(/\s{7}<rect/g, '\n    <rect')
   return formatted
 }
 
