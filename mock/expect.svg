@@ -1,4 +1,4 @@
-<svg class="js-calendar-graph-svg calendar-graph" viewBox="0 0 728 110" xmlns="http://www.w3.org/2000/svg">
+<svg class="js-calendar-graph-svg" viewBox="0 0 728 110" xmlns="http://www.w3.org/2000/svg">
   <g transform="translate(10, 20)" data-hydro-click="{&quot;event_type&quot;:&quot;user_profile.click&quot;,&quot;payload&quot;:{&quot;profile_user_id&quot;:5278201,&quot;target&quot;:&quot;CONTRIBUTION_CALENDAR_SQUARE&quot;,&quot;user_id&quot;:5278201,&quot;originating_url&quot;:&quot;https://github.com/users/x86chi/contributions&quot;}}" data-hydro-click-hmac="c8ee29f0db80b5f6996232e69bb8cf4a97f998638a25c1336147df7ad621ab55"><g transform="translate(126, 0)">
     <rect class="day" width="10" height="10" x="5" y="0" fill="var(--color-calendar-graph-day-L2-bg)" data-count="8" data-date="2019-12-29"/>
     <rect class="day" width="10" height="10" x="5" y="13" fill="var(--color-calendar-graph-day-L2-bg)" data-count="10" data-date="2019-12-30"/>
