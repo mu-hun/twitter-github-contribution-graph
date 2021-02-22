@@ -26,6 +26,8 @@ export default async function makeBanner({
 
   $('body').prepend(SVG)
 
+  $('div.width-full').remove()
+
   $('head').append(`<style>${stylesheet.layout}</style>`)
   $('head').append(`<style>${stylesheet.github}</style>`)
 
