@@ -13,7 +13,7 @@ test('Compare snapshot', async () => {
 
   const result = parseSVG({
     context,
-    date: new Date('2020-10-30'),
+    date: new Date('2021-02-22'),
     parseOnlyCurrentYear: true,
   })
 
