@@ -52,8 +52,6 @@ const preprocessor = (container: Cheerio) => {
   svg.removeAttr('width')
   svg.removeAttr('height')
 
-  svg.addClass('calendar-graph')
-
   svg.attr('viewBox', '0 0 728 110')
   svg.attr('xmlns', 'http://www.w3.org/2000/svg')
 
