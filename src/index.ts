@@ -9,6 +9,8 @@ import updateProfileBanner from './updateProfile'
 import { username, title } from './env'
 
 const main = async () => {
+  if (!username) throw Error('Cannot read require environment variables')
+
   const document = await getGraph(username)
   const html = makeBanner(document, title)
 
