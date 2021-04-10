@@ -1,9 +1,14 @@
 import cheerio from 'cheerio'
 import { readFileSync } from 'fs'
+import path from 'path'
 
 const stylesheet = {
-  layout: readFileSync('resources/index.css', { encoding: 'utf8' }),
-  github: readFileSync('resources/github.css', { encoding: 'utf8' }),
+  layout: readFileSync(path.resolve('resources', 'index.css'), {
+    encoding: 'utf8',
+  }),
+  github: readFileSync(path.resolve('resources', 'github.css'), {
+    encoding: 'utf8',
+  }),
 } as const
 
 const documentWrapper = (document: string) => `

@@ -1,3 +1,5 @@
+import path from 'path'
+
 jest.mock('./fetch/getGraph')
 
 import getGraph from './fetch/getGraph'
@@ -10,7 +12,7 @@ import { readFile } from './utils/fs'
 test('Compare snapshot', async () => {
   const [document, expectHTML] = await Promise.all([
     getGraph('x86chi'),
-    readFile('mock/expect.html', { encoding: 'utf8' }),
+    readFile(path.resolve('mock', 'expect.html'), { encoding: 'utf8' }),
   ])
 
   const result = makeBanner(document, title)
