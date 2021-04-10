@@ -19,35 +19,13 @@ Below command will direct you to a URL where you can authorize to Twitter bot.
 t authorize
 ```
 
-### Step 1. Fork this repository
+### Fork this repository
 
 > Forked repository page -> Secrets -> New Secret
 
 Create `CONSUMER_KEY`, `CONSUMER_SECRET`, `ACCESS_TOKEN_KEY`, `ACCESS_TOKEN_SECRET`.
 
 Done. The banner is updating once a day.
-
-### Step 2. Create [`.env`](https://github.com/motdotla/dotenv) file in root directory
-
-write the information upper.
-
-```
-CONSUMER_KEY=
-# etc...
-```
-
-Add your Github username.
-
-```
-USERNAME=
-```
-
-Title and Subtitle will be display to profile banner.
-
-```
-TITLE=
-SUBTITLE=
-```
 
 ### Parse only this year
 
