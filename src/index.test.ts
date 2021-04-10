@@ -1,21 +1,19 @@
 jest.mock('./fetch/getGraph')
 
 import getGraph from './fetch/getGraph'
-import parseSVG from './parseSvg'
+import makeBanner from './makeBanner'
+
+import { title } from './env'
 
 import { readFile } from './utils/fs'
 
 test('Compare snapshot', async () => {
-  const [context, expectSVG] = await Promise.all([
+  const [document, expectHTML] = await Promise.all([
     getGraph('x86chi'),
-    readFile('mock/expect.svg', { encoding: 'utf8' }),
+    readFile('mock/expect.html', { encoding: 'utf8' }),
   ])
 
-  const result = parseSVG({
-    context,
-    date: new Date('2021-02-22'),
-    parseOnlyCurrentYear: true,
-  })
+  const result = makeBanner(document, title)
 
-  expect(result).toBe(expectSVG)
+  expect(result).toBe(expectHTML)
 })

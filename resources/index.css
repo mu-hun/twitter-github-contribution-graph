@@ -7,17 +7,3 @@ body {
   margin: 0;
   position: relative;
 }
-
-body > svg {
-  width: 1100px;
-}
-
-footer {
-  position: absolute;
-  bottom: 30px;
-  right: 33px;
-}
-
-h1 {
-  font-size: 20px;
-}

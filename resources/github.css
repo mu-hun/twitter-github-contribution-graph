@@ -1,71 +1,25 @@
-/*
- * Released under MIT license. Copyright (c) 2019 GitHub Inc.
- */
-
-:root {
-  --color-text-primary: #24292e;
-  --color-text-secondary: #586069;
-
-  --color-calendar-graph-day-bg: #ebedf0;
-  --color-calendar-graph-day-L1-bg: #9be9a8;
-  --color-calendar-graph-day-L2-bg: #40c463;
-  --color-calendar-graph-day-L3-bg: #30a14e;
-  --color-calendar-graph-day-L4-bg: #216e39;
-
-  --color-calendar-halloween-graph-day-L1-bg: #ffee4a;
-  --color-calendar-halloween-graph-day-L2-bg: #ffc501;
-  --color-calendar-halloween-graph-day-L3-bg: #fe9600;
-  --color-calendar-halloween-graph-day-L4-bg: #03001c;
-  --color-calendar-graph-day-border: rgba(27, 31, 35, 0.06);
-
-  --color-calendar-graph-day-L4-border: rgba(27, 31, 35, 0.06);
-  --color-calendar-graph-day-L3-border: rgba(27, 31, 35, 0.06);
-  --color-calendar-graph-day-L2-border: rgba(27, 31, 35, 0.06);
-  --color-calendar-graph-day-L1-border: rgba(27, 31, 35, 0.06);
-
-  --color-text-primary: #24292e;
+.height-full {
+  height: auto !important;
 }
 
-.ContributionCalendar-day[data-level='0'] {
-  fill: var(--color-calendar-graph-day-bg);
-  shape-rendering: geometricPrecision;
-  outline: 1px solid var(--color-calendar-graph-day-border);
-  outline-offset: -1px;
+.pl-lg-3.col-6.border-lg-left, .dropdown, a[href="https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile"]
+{
+  display: none;
 }
-.ContributionCalendar-day[data-level='1'] {
-  fill: var(--color-calendar-graph-day-L1-bg);
-  outline: 1px solid var(--color-calendar-graph-day-L1-border);
-}
-.ContributionCalendar-day[data-level='2'] {
-  fill: var(--color-calendar-graph-day-L2-bg);
-  outline: 1px solid var(--color-calendar-graph-day-L2-border);
-}
-.ContributionCalendar-day[data-level='3'] {
-  fill: var(--color-calendar-graph-day-L3-bg);
-  outline: 1px solid var(--color-calendar-graph-day-L3-border);
-}
-.ContributionCalendar-day[data-level='4'] {
-  fill: var(--color-calendar-graph-day-L4-bg);
-  outline: 1px solid var(--color-calendar-graph-day-L4-border);
+.js-yearly-contributions {
+  width: 1100px;
 }
 
-.ContributionCalendar[data-holiday='halloween']
-  .ContributionCalendar-day[data-level='1'] {
-  fill: var(--color-calendar-halloween-graph-day-L1-bg);
-}
-.ContributionCalendar[data-holiday='halloween']
-  .ContributionCalendar-day[data-level='2'] {
-  fill: var(--color-calendar-halloween-graph-day-L2-bg);
-}
-.ContributionCalendar[data-holiday='halloween']
-  .ContributionCalendar-day[data-level='3'] {
-  fill: var(--color-calendar-halloween-graph-day-L3-bg);
-}
-.ContributionCalendar[data-holiday='halloween']
-  .ContributionCalendar-day[data-level='4'] {
-  fill: var(--color-calendar-halloween-graph-day-L4-bg);
+[title='A summary of pull requests, issues opened, and commits to the default and gh-pages branches.'] {
+  font-size: 14px;
 }
 
-* {
-  box-sizing: border-box;
+[title='A summary of pull requests, issues opened, and commits to the default and gh-pages branches.']
+  * {
+  height: 14;
+  width: 14;
+}
+
+#user-activity-overview > div {
+  margin: 0 !important;
 }

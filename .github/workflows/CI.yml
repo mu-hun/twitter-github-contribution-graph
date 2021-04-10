@@ -18,3 +18,5 @@ jobs:
         run: yarn lint
       - name: Run test
         run: yarn test
+        env:
+          TITLE: ${{ github.repository_owner }}/twitter-github-contribution-graph
