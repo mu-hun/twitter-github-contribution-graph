@@ -42,18 +42,11 @@ Add your Github username.
 USERNAME=
 ```
 
-Title and Subtitle will be display to profile banner.
-
-```
-TITLE=
-SUBTITLE=
-```
-
 ### Parse only this year
 
-This project supports parsing only this year history. It is enabled by opt-out in Github Actions.
+This project support parsing only this year history. It can enable in Github Action.
 
-Please remove the `CURRENT_YEAR: true` line in `github/workflows/cron.yml` if you don't want this feature.
+Please add the `CURRENT_YEAR: true` environment variable in `.github/workflows/cron.yml` if you want this feature.
 
 ## License
 

@@ -1,13 +1,11 @@
 import 'dotenv/config'
 
-const variables = {
-  username: process.env.USERNAME,
-  subtitle: process.env.SUBTITLE,
-  title: process.env.TITLE,
-  parseOnlyCurrentYear: !!process.env.CURRENT_YEAR,
-} as const
+const { USERNAME, TITLE, CURRENT_YEAR } = process.env
 
-if (!(variables.username && variables.subtitle && variables.title))
-  throw Error('Cannot read require environment variables')
+if (!USERNAME) throw Error('Cannot read require environment variables')
 
-export const { username, subtitle, title, parseOnlyCurrentYear } = variables
+const username = USERNAME
+const title = TITLE ?? USERNAME
+const from = CURRENT_YEAR ? `${new Date().getFullYear()}-01-01` : ''
+
+export { username, title, from }
