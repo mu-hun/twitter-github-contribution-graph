@@ -9,6 +9,8 @@ import updateProfileBanner from './updateProfile'
 import { username, title, from } from './env'
 
 const main = async () => {
+  if (!username) throw Error('Cannot read "USERNAME" environment variable')
+
   const document = await getGraph(username, from)
   const html = makeBanner(document, title)
 
