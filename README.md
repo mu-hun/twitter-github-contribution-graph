@@ -3,7 +3,9 @@
 
 A client uploading Github contribution graph to Twitter profile banner.
 
-[PREVIEW](https://twitter.com/x86chi)
+## Preview
+ 
+![Example Twitter Banner](https://github.com/x86chi/twitter-github-contribution-graph/assets/5278201/defd12e1-b6ae-42e4-bd2e-1666027940ce)
 
 ## Usage
 
